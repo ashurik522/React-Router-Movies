@@ -18,6 +18,7 @@ export default function Movie(props) {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
         setMovie(response.data)
+        console.log(response)
       })
       .catch(error => {
         console.error(error);
@@ -27,7 +28,7 @@ export default function Movie(props) {
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { }
+  const saveMovie = evt => { }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -35,7 +36,7 @@ export default function Movie(props) {
 
   return (
     <div>
-      <MovieCard movie={movie}/>
+      <MovieCard title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.stars}/>
     </div>
   );
 }
